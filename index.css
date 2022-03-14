@@ -7,7 +7,8 @@ html, body{
     margin: 0;
     padding: 0;
     font-family: 'Kanit', sans-serif;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    scroll-behavior: smooth;
 }
 h1, h2, h3, h4{
     color: #1f3e72;
@@ -45,7 +46,8 @@ header nav ul li a{
     padding-left: 16px;
     position: relative;
     padding-bottom: 32px;
-    height: 60vh;
+    height: 80vh;
+    scroll-margin-top: 160px;
 }
 #vacunate > div:nth-of-type(1){
     flex: 2;
@@ -62,7 +64,7 @@ header nav ul li a{
 #formdiv{
     background-color: white;
     position: absolute;
-    bottom: 0px;
+    bottom: -40px;
     padding: 16px;
     box-shadow: 7px 5px 5px -3px rgba(87,87,87,0.52);
     -webkit-box-shadow: 7px 5px 5px -3px rgba(87,87,87,0.52);
@@ -77,12 +79,14 @@ header nav ul li a{
     display: flex;
     flex-direction: column;
     padding: 8px;
+    overflow: hidden;
 }
 /* Second section style */
 #razones{
     margin-top: 32px;
     margin-bottom: 32px;
     padding: 32px;
+    scroll-margin-top: 160px;
 }
 #razones > p{
     width: 300px;
@@ -118,7 +122,7 @@ header nav ul li a{
     margin-bottom: 64px;
     position: relative;
     height: max-content;
-    
+    scroll-margin-top: 160px;
 }
 #preparate > div:nth-of-type(1){
     flex: 2;
@@ -127,10 +131,13 @@ header nav ul li a{
 }
 #preparate > div:nth-of-type(2){
     flex: 3;
+    position: relative;
 }
 #preparate div img{
     width: 100%;
     min-width: 300px;
+    position: relative;
+    z-index: 10;
 }
 /* Fourth section style */
 #emergencia{
@@ -143,6 +150,7 @@ header nav ul li a{
     margin-top: 64px;
     margin-bottom: 64px;
     height: max-content;
+    scroll-margin-top: 160px;
 }
 #emergencia > div:nth-of-type(1){
     flex: 2;
@@ -150,22 +158,20 @@ header nav ul li a{
     padding-left: 16px;
 }
 #emergencia > div:nth-of-type(2){
-    flex: 2;
+    flex: 3;
+    position: relative;
 }
 #emergencia div img{
     width: 100%;
     min-width: 300px;
+    position: relative;
+    z-index: 10;
 }
 #emergencia-menu{
     margin-top: 32px;
-    display: grid;
+    display: flex;
     justify-content: center;
-    grid-template-columns: 
-        repeat(
-            auto-fill,
-            minmax(min(130px,100%), 1fr)
-        );
-    gap: 8px;
+    flex-wrap: wrap;
 }
 /* Footer style */
 footer{
@@ -177,16 +183,35 @@ footer > div:nth-of-type(1){
     grid-template-columns: 
         repeat(
             auto-fill,
-            minmax(min(600px,100%), 1fr)
+            minmax(min(400px,100%), 1fr)
         );
     gap: 8px;
 }
-footer > div:first-of-type(1) > div:first-of-type(2){
+footer > div:nth-of-type(2){
     display: flex;
+    justify-content: space-between;
+}
+footer > div:nth-of-type(1) > div:nth-of-type(2){
+    display: flex;
+    flex-wrap: wrap;
+}
+.bkg-blue{
+    background-color: #3858d6;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 80px;
 }
 
 @media (max-width: 700px){
     header nav{
         overflow-x: scroll;
+    }
+    #vacunate{
+        height: max-content;
+    }
+    #formdiv{
+        position: relative;
     }
 }
